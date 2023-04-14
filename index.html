@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Guess The Painter</title>
-    <link rel="stlesheet" href="./style.css"/>
-  </head>
-  <body>
-    <div class="app" id="app"></div>
-    <script src="./main.js" type="module"></script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Guess The Painter</title>
+    </head>
+    <body>
+        <h1 class="title">Guess the Painter</h1>
+        <section class="app" id="app">
+            <div class="game">
+                <div class="guessContainer">
+                    <div class="guessRow">
+                        <button class="guessBox" id="guess1">guess 1</button>
+                        <button class="guessBox" id="guess2">guess 2</button>
+                    </div>
+                    <div class="guessRow">
+                        <button class="guessBox" id="guess3">guess 3</button>
+                        <button class="guessBox" id="guess4">guess 4</button>
+                    </div>
+                </div>
+                <div id="paintingContainer" class="paintingContainer"></div>
+                <div class="score">score: <span id="score">0</span></div>
+            </div>
+        </section>
+        <section class="rules section">
+            <h2>Rules</h2>
+            Guess who made the painting shown.
+        </section>
+        <section class="scores section">
+            <h2>Best scores</h2>
+            Impressionism: <span id="score_impressionism"></span>
+        </section>
+        <script src="./main.js" type="module"></script>
+    </body>
 </html>

@@ -1,9 +1,12 @@
-import { getPaintingSet } from "./paintings.js";
+import { setScore, displayScores } from "./score.js";
+import { Game } from "./Game.js";
+import "./style.css"
+import "./navbar.css"
 
-// Get set for the rounds
-let paintings = getPaintingSet("impressionism",3);
-console.log(paintings[1])
+// On load
+displayScores();
+const game = new Game();
 
-document.getElementById("app").innerHTML = `
-<img height = 512 src="${paintings[0][1]}"/>
+document.getElementById("paintingContainer").innerHTML = `
+<img class="painting" src="test.jpg"/>
 `
