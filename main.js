@@ -5,8 +5,5 @@ import "./navbar.css"
 
 // On load
 displayScores();
-const game = new Game();
+const game = new Game(3, "impressionism");
 
-document.getElementById("paintingContainer").innerHTML = `
-<img class="painting" src="test.jpg"/>
-`

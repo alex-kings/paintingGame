@@ -55,3 +55,10 @@ h2 {
 .score {
     text-align: right;
 }
+.mask {
+    position:fixed;
+    z-index: 100;
+    background-color: red;
+    width:100rem;
+    height:100rem;
+}
