@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Painter</title>
+    <link href="../navbar.css" rel="stylesheet" />
+    <link href="../style.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../scores/index.html">Scores</a></li>
+            <li><a href="../rules/index.html">Rules</a></li>
+        </ul>
+    </nav>
+    <div class="main">
+        <h1 class="title">Guess the Painter</h1>
+        <section class="app" id="app">
+            <div class="game">
+                <div class="guessContainer">
+                    <div class="guessRow">
+                        <button class="guessBox" id="guess1">
+                            
+                        </button>
+                        <button class="guessBox" id="guess2">
+                            
+                        </button>
+                    </div>
+                    <div class="guessRow">
+                        <button class="guessBox" id="guess3">
+                            
+                        </button>
+                        <button class="guessBox" id="guess4">
+                            
+                        </button>
+                    </div>
+                    <div id="endRoundPanel" class="endRoundPanel">
+                        <div id="endRoundPanelText" class="endPanel"></div>
+                        <button id="nextRoundButton">next round</button>
+                        <button id="endGameButton" class="endGameButton">
+                            end game
+                        </button>
+                    </div>
+                    <div id="endGamePanel" class="endRoundPanel">
+                        <div id="endGamePanelText" class="endPanel">
+                            Game finished with a score of
+                            <span id="finalScore"></span>
+                        </div>
+                        <button id="goHomeButton">go home</button>
+                    </div>
+                </div>
+                <div id="paintingContainer" class="paintingContainer"></div>
+                <div class="score">score: <span id="score">0</span></div>
+                <button id="test">test</button>
+            </div>
+        </section>
+        <section class="scores section">
+            <h2>Best scores</h2>
+            Impressionism: <span id="score_impressionism"></span>
+        </section>
+    </div>
+    <script src="../Game.js" type="module"></script>
+</body>
+</html>

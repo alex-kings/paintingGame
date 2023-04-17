@@ -8,9 +8,17 @@ const gb4 = document.getElementById("guess4");
 const buttons = [gb1,gb2,gb3,gb4];
 const paintingContainer = document.getElementById("paintingContainer");
 const endRoundPanel = document.getElementById("endRoundPanel");
-const nextRoundButton = document.getElementById("nextRoundButton")
+const endGamePanel = document.getElementById("endGamePanel");
+const endRoundPanelText = document.getElementById("endRoundPanelText");
+const finalScore = document.getElementById("finalScore");
+const nextRoundButton = document.getElementById("nextRoundButton");
+const endGameButton = document.getElementById("endGameButton");
+const goHomeButton = document.getElementById("goHomeButton");
+const score = document.getElementById("score");
 
-export class Game {
+console.log(window.location.search)
+
+class Game {
     // Attributes
     rounds;
     category;
@@ -20,31 +28,48 @@ export class Game {
 
     constructor(numberRounds, category) {
         this.category = category;
+        this.numberRounds = numberRounds;
         this.rounds = getRounds(category,numberRounds);
-        this.setupButtons();
+        this.setupButtonNames();
         this.displayPainting();
 
+        this.setupEventListeners();
+    }
+
+    // Setup the event listeners on buttons
+    setupEventListeners() {
+        // Guess buttons
+        for(let i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click",()=>{
+                this.attemptGuess(i);
+            })
+        }
+        // Go to next round
         nextRoundButton.addEventListener("click",()=>{
             // Hide the end round panel.
             endRoundPanel.style.display = "none";
             // Start the next round.
             this.displayPainting();
-            this.setupButtons();
+            this.setupButtonNames();
+        })
+        // End the game
+        endGameButton.addEventListener("click",()=>{
+            this.displayEndGamePanel();
+        })
+        // Go home
+        goHomeButton.addEventListener("click",()=>{
+            console.log("Go home now.");
         })
     }
 
     // Display the painting for the current round
     displayPainting() {
-        console.log(this.rounds[this.currentRound].painting[1])
         paintingContainer.innerHTML = `<img class="painting" src="${this.rounds[this.currentRound].painting[1]}"/>`
     }
 
     // Setup the buttons for the current round
-    setupButtons() {
+    setupButtonNames() {
         for(let i = 0; i < buttons.length; i++) {
-            buttons[i].addEventListener("click",()=>{
-                this.attemptGuess(i);
-            })
             buttons[i].innerText = this.rounds[this.currentRound].painters[i];
         }
     }
@@ -57,27 +82,41 @@ export class Game {
             this.incrementScore();
             success = true;
         }
-        this.incrementRound(success);
-    }
 
-    incrementRound(success) {
+        // Increment the round
         this.currentRound++;
+        // Display end round panel
         this.displayEndRoundPanel(success);
     }
 
     // Display the panel at the end of a round
     displayEndRoundPanel(success) {
         endRoundPanel.style.display = "block";
-        document.getElementById("endPanel").innerText = success ? `
+        endRoundPanelText.innerText = success ? `
         Success
         `:
         `
         Fail
         `;
+        // Decide which button to show
+        if(this.currentRound == this.numberRounds) {
+            // Hide the next round button
+            nextRoundButton.style.display = "none";
+            endGameButton.style.display = "block";
+        }
+    }
+
+    // Display the panel at the end of the game
+    displayEndGamePanel() {
+        endGamePanel.style.display = "block";
+        finalScore.innerText = `${this.score}/${this.numberRounds}`;
     }
 
     incrementScore() {
         this.score++;
-        document.getElementById("score").innerText = this.score;
+        score.innerText = this.score;
     }
 }
+
+// Start a game.
+new Game(4, "impressionism");

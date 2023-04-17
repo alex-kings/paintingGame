@@ -1,11 +1,13 @@
 *{
     padding:0;
     margin:0;
+    box-sizing: border-box;
     font-family: sans-serif;
     --light-grey:rgb(206,206,206);
+    --btn-distance:.3rem;
 }
-body {
-    margin:0 1rem;
+.main {
+    margin:1rem;
 }
 h2 {
     font-size: 1.3em;
@@ -33,19 +35,21 @@ h2 {
     flex-direction: column;
     width:100%;
     margin-bottom:.5rem;
-    border:1px solid var(--light-grey);
+    gap:var(--btn-distance);
 }
 .guessRow {
     display: flex;
+    gap:var(--btn-distance);
 }
 .guessBox {
-    font-size: 1.3em;
+    font-size: 1.4em;
     width:100%;
     text-align: center;
     padding:.3rem 0;
     cursor:pointer;
     transition: .3s;
     border:1px solid var(--light-grey);
+    border-radius: .5rem;
 }
 .guessBox:hover {
     background-color: var(--light-grey);
@@ -66,4 +70,7 @@ h2 {
 }
 .endPanel {
     padding:.5rem;
+}
+.endGameButton {
+    display:none;
 }

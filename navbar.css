@@ -1,6 +1,22 @@
 .navbar {
-    background-color: rgb(174, 210, 222);
-    text-align: center;
-    padding:.3rem 0;
-    font-size: 1.1em;
+    background-color: black;
+    padding:1rem 2rem;
+    font-size: large;
+}
+.navbar > ul {
+    list-style: none;
+    display:flex;
+    justify-content: end;
+    flex-direction: row;
+    gap:2rem;
+}
+.navbar > ul > li > a {
+    text-decoration: none;
+    color: white;
+}
+.navbar > ul > li > a:hover {
+    color:lightgray;
+}
+.navbar > ul > li > a:active {
+    color:rgb(180,180,180);
 }
