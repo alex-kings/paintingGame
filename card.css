@@ -1,3 +1,9 @@
+.cards {
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap:1rem;
+}
 .card {
     width:14rem;
     aspect-ratio: 5/6;
@@ -6,6 +12,13 @@
     overflow: hidden;
     justify-content: center;
     align-items: center;
+}
+.card > p {
+    z-index: 100;
+    position: absolute;
+    color: white;
+    font-size: larger;
+    transition: .3s;
 }
 .card > a {
     z-index: 10;
@@ -22,14 +35,15 @@
 .img-width {
     height:110%;
 }
+.card:hover > img {
+    filter: brightness(105%)contrast(110%);
+}
+.card:hover > p {
+    color: rgba(255,255,255,0);
+}
 .card:hover > .img-height{
     height:110%;
 }
 .card:hover > .img-width{
     height:120%;
-}
-.cards {
-    padding: 1rem;
-    display: flex;
-    flex-wrap: wrap;
 }
