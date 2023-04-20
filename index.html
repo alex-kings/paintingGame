@@ -7,6 +7,7 @@
         <title>Guess The Painter</title>
         <link href="./navbar.css" rel="stylesheet" />
         <link href="./style.css" rel="stylesheet" />
+        <link href="./card.css" rel="stylesheet" />
     </head>
     <body>
         <nav class="navbar">
@@ -16,8 +17,17 @@
                 <li><a href="game/index.html">Game</a></li>
             </ul>
         </nav>
-        <!-- <button id="startImpressionism">impressionism game</button> -->
-        <a href='./game/index.html?type=impressionism'>Start game</a>
-        <script type="module" src="./startGame.js"></script>
+        <div class="cards">
+            <a href='./game/index.html?style=impressionism' class="card">
+                <img class="img-height" src="paintings/Monet_Water_Lilies_and_Japanese_Bridge.jpg" alt="">
+            </a>
+            <a href='./game/index.html?style=expressionism' class="card">
+                <img class="img-width" src="paintings/Edvard_Munch_The_Scream.jpg" alt="">
+            </a>
+            <a href='./game/index.html?style=artNouveau' class="card">
+                <img class="img-height" src="paintings/Klimt_painting.jpg" alt="">
+            </a>
+        </div>
+            <script type="module" src="./startGame.js"></script>
     </body>
 </html>
